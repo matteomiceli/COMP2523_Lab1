@@ -48,7 +48,7 @@ function eatFruit(fruit: fruit): void {
 eatFruit(strawberry);
 
 // Correctly annotate the fruitList and transformFunction parameters
-function mapFruit(fruitList: string[], transformFunction) {
+function mapFruit(fruitList: string[], transformFunction: ((value: string) => string)) {
   return fruitList.map(transformFunction);
 }
 
@@ -60,13 +60,11 @@ function bakeFruit(fruitName: string): string {
 }
 
 const bakedFruit = mapFruit(fruitList, bakeFruit);
+console.log(bakedFruit);
 
-/*
-// greetMe(name : string, callbackFn: (msg: string) => void )
 
-  function greetMe(name, callback) {
-    callback("Hello there" + name)
-  }
-  greetMe("John", (msg) => { console.log(msg) })
 
-*/
+function greetMe(name: string, callback: (msg:string) => void) {
+  callback("Hello there" + name)
+}
+greetMe("John", (msg) => { console.log(msg) })
